@@ -10,19 +10,20 @@ class Mailchimp extends Component
 	 * the api key in use
 	 * @var  string
 	 */
-	public $apikey;
+	public $apiKey;
 
 	/**
 	 * The options for mailchimp API
 	 * @var array
 	 */
 	public $opts = [];
-	
+	public $listId = [];
+
 	public $mailChimp;
 	
 	public function init()
 	{
-		$this->mailChimp = new \Mailchimp($this->apikey, $this->opts);
+		$this->mailChimp = new \Mailchimp($this->apiKey, $this->opts);
 	}
 	
 	public function __get($name)
