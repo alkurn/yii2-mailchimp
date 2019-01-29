@@ -1,0 +1,13 @@
+{
+    "name": "alkurn/yii2-mailchimp",
+    "description": "MailChimp plugin for the Yii2 framework",
+    "type": "yii2-extension",
+    "keywords": ["yii2", "extension", "yii2-extension", "Yii2 Extension", "MailChimp", "mailchimp"],
+    "license": "MIT",
+    "require": {
+        "mailchimp/mailchimp": "*"
+    },
+    "autoload": {
+        "psr-4": { "alkurn\\mailchimp\\": "" }
+    }
+}
