@@ -1,42 +1,30 @@
 <?php
-
 namespace alkurn\mailchimp;
 
+use Yii;
 use yii\base\Component;
+use alkurn\mailchimp\Root;
+
+
+
 
 class Mailchimp extends Component
 {
-	/**
-	 * the api key in use
-	 * @var  string
-	 */
-	public $apiKey;
+    public $apiKey;
+    private $_client;
 
-	/**
-	 * The options for mailchimp API
-	 * @var array
-	 */
-	public $opts = [];
-	public $listId = [];
+    public function init()
+    {
+        $this->_client = new Root(['apiKey' => $this->apiKey]);
+        return parent::init();
+    }
 
-	public $mailChimp;
-	
-	public function init()
-	{
-		$this->mailChimp = new \Mailchimp($this->apiKey, $this->opts);
-	}
-	
-	public function __get($name)
-	{
-		try{
-			parent::__get($name);
-		}catch(\yii\base\UnknownPropertyException $e){
-			return $this->mailChimp->{$name};
-		}
-	}
-	
-	public function __call($name, $parameters = [])
-	{
-		return call_user_func_array([$this->mailChimp, $name], $parameters);
-	}
-} 
+    public function __call($name, $params)
+    {
+        if(method_exists($this->_client, $name)){
+            return call_user_func_array([$this->_client, $name], $params);
+        }
+        parent::call($name, $params); // We do this so we don't have to implement the exceptions ourselves
+    }
+}
+

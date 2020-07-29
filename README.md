@@ -5,7 +5,7 @@ Yii2 MailChimp extension.
 
 This is the most dirt simple extension you could ever imagine, literally this is how you use it:
 
-    $mc = new alkurn\mailchimp\Mailchimp(['apikey' => 'lalala']);
+    $mc = new alkurn\mailchimp\Mailchimp(['apiKey' => 'lalala']);
     $mc->lists->getList();
 
 Installation
