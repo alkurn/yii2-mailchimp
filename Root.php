@@ -146,8 +146,7 @@ class Root extends Component
                 }
             }
 
-            $message = $body->title . ': ' . rtrim($body->detail, '.')
-                . ' (' . $body->type . ') '
+            $message = $body->title . ': ' . rtrim($body->detail, '.') 
                 . (
                 property_exists($body, 'errors')
                     ? ' - Errors: ' . var_export($body->errors, true)
