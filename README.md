@@ -22,7 +22,7 @@ php composer.phar require --prefer-dist alkurn/yii2-mailchimp "dev-master"
 or add
 
 ```
-"alkurn/yii2-mailchimp": "*"
+"alkurn/yii2-mailchimp": "dev-master"
 ```
 
 to the require section of your `composer.json` file.
